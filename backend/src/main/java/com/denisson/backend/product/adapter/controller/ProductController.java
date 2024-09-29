@@ -3,7 +3,7 @@ package com.denisson.backend.product.adapter.controller;
 import com.denisson.backend.abstracter.adapter.controller.AbstractController;
 import com.denisson.backend.product.adapter.dtos.ProductDTO;
 import com.denisson.backend.product.core.domain.entities.Product;
-import com.denisson.backend.product.core.useCases.GetAllProductUseCase;
+import com.denisson.backend.product.core.useCases.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,12 +15,20 @@ import java.util.List;
 public class ProductController extends AbstractController<Product, Long, ProductDTO> {
 
     @Autowired
+    CreateProductUseCase createProductUseCase;
+    @Autowired
     GetAllProductUseCase getAllProductUseCase;
+    @Autowired
+    GetByIdProductUseCase getByIdProductUseCase;
+    @Autowired
+    UpdateByIdProductUseCase updateByIdProductUseCase;
+    @Autowired
+    DeleteByIdProductUseCase deleteByIdProductUseCase;
 
 
     @Override
     protected Object executeCreateUseCase(Product entity) {
-        return null;
+        return createProductUseCase.execute(entity);
     }
 
     @Override
@@ -29,17 +37,17 @@ public class ProductController extends AbstractController<Product, Long, Product
     }
 
     @Override
-    protected Object executeGetByIdUseCase(Long aLong) {
-        return null;
+    protected Object executeGetByIdUseCase(Long id) {
+        return getByIdProductUseCase.execute(id);
     }
 
     @Override
-    protected Object executeUpdateByIdUseCase(Long aLong, ProductDTO productDTO) {
-        return null;
+    protected Object executeUpdateByIdUseCase(Long id, ProductDTO productDTO) {
+        return updateByIdProductUseCase.execute(id, productDTO);
     }
 
     @Override
-    protected String executeDeleteByIdUseCase(Long aLong) {
-        return "";
+    protected String executeDeleteByIdUseCase(Long id) {
+        return deleteByIdProductUseCase.execute(id);
     }
 }

@@ -11,11 +11,11 @@ public abstract class CreateAbstractUseCase<T extends AbstractEntity> {
         this.repository = repository;
     }
 
-    public void execute(T t) {
+    public T execute(T t) {
         if(repository.existsName(t.getName())) {
             throw new GeneralException(String.format("Name %s already exists.", t.getName()));
         }
-        repository.save(t);
+        return repository.save(t);
     }
 
 }

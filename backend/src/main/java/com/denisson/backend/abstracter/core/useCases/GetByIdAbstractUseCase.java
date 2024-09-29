@@ -13,7 +13,7 @@ public abstract class GetByIdAbstractUseCase<T, Repository extends AbstractRepos
     }
 
     public Optional<T> execute(Long id) {
-        if(repository.existsById(id)) {
+        if(!repository.existsById(id)) {
             throw new IdNotFoundException(getNameEntity(), id);
         }
         return repository.findById(id);

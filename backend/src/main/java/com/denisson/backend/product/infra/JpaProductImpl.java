@@ -19,7 +19,7 @@ public class JpaProductImpl implements AbstractRepository<Product> {
 
     @Override
     public Product save(Product product) {
-        return null;
+        return repository.save(product);
     }
 
     @Override
@@ -29,17 +29,18 @@ public class JpaProductImpl implements AbstractRepository<Product> {
 
     @Override
     public Optional<Product> findById(Long id) {
-        return Optional.empty();
+        return repository.findById(id);
     }
 
     @Override
     public void delete(Long id) {
-
+        repository.deleteById(id);
     }
+
 
     @Override
     public boolean existsById(Long id) {
-        return false;
+        return repository.existsById(id);
     }
 
     @Override

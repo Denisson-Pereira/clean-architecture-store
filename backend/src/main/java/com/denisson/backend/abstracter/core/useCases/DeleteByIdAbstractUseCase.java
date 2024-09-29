@@ -10,12 +10,13 @@ public abstract class DeleteByIdAbstractUseCase<T> {
         this.repository = repository;
     }
 
-    public void execute(Long id) {
-        if(repository.existsById(id)) {
+    public String execute(Long id) {
+        if(!repository.existsById(id)) {
             throw new IdNotFoundException(getNameEntity(), id);
         }
 
         repository.delete(id);
+        return String.format("Id %s deleted.", id);
     }
 
     protected abstract String getNameEntity();
