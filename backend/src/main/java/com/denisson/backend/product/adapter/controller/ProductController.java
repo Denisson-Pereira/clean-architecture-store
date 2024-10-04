@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("products")
+@RequestMapping("private/products")
 public class ProductController extends AbstractController<Product, Long, ProductDTO> {
 
     @Autowired

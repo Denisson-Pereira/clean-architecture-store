@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("categories")
+@RequestMapping("private/categories")
 public class CategoryController extends AbstractController<Category, Long, CategoryDTO> {
 
     @Autowired
