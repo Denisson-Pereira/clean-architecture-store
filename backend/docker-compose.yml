@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_foodhub
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: foodhub
+      MYSQL_USER: ${USERNAME_BANCO}
+      MYSQL_PASSWORD: ${SENHA_BANCO}
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend-network
+
+  backend:
+    image: openjdk:11
+    container_name: backend_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/foodhub
+      SPRING_DATASOURCE_USERNAME: ${USERNAME_BANCO}
+      SPRING_DATASOURCE_PASSWORD: ${SENHA_BANCO}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - backend-network
+
+volumes:
+  db_data:
+
+networks:
+  backend-network:
