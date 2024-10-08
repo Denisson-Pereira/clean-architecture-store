@@ -1,0 +1,36 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456Ok!
+      MYSQL_DATABASE: foodhub
+    ports:
+      - "3307:3306"  # Porta alterada para evitar conflito
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend-app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/foodhub
+      USERNAME_BANCO: root
+      SENHA_BANCO: 123456Ok!
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:

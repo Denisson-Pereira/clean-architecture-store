@@ -28,9 +28,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
+                .cors() // Habilita CORS
+                .and()
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/private/**").authenticated()
-                        .anyRequest().permitAll()
+                        .requestMatchers("/auth/login").permitAll() // Permite acesso ao endpoint de login
+                        .requestMatchers("/private/**").authenticated() // Restringe acesso a rotas privadas
+                        .anyRequest().permitAll() // Permite acesso a todas as outras rotas
                 )
                 .addFilterBefore(new JwtAuthenticationFilter(jwtService, userRepository), UsernamePasswordAuthenticationFilter.class);
 
@@ -52,5 +55,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
-
