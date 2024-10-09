@@ -1,0 +1,18 @@
+services:
+  api:
+    image: backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      JWT_SECRET: seu-segredo-aqui
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456Ok!
+      MYSQL_DATABASE: foodhub
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456Ok!
+    ports:
+      - "3307:3306"
