@@ -43,11 +43,11 @@ Para garantir a segurança da aplicação, foram implementados mecanismos robust
 
 # 🏢 Arquitetura de software
 
-<img src="./github/clean.png" min-width="100px" max-width="100px" width="300px" align="right" alt="Computador iuriCode">
-
 ## 📖 Sobre
 
 Este projeto foi desenvolvido com base nos princípios da **Clean Architecture**, que visa criar uma estrutura de código organizada, modular e altamente escalável. **A Clean Architecture** promove a separação clara de responsabilidades entre camadas do sistema, mantendo o domínio da aplicação isolado de detalhes técnicos, como *frameworks* ou bancos de dados. Isso facilita a manutenção, testes e evolução da aplicação ao longo do tempo, permitindo a fácil adaptação a novas necessidades ou tecnologias.
+
+<img src="./github/clean.png" min-width="100px" max-width="100px" width="300px" align="right" alt="Computador iuriCode">
 
 No projeto, temos duas entidades principais que compartilham muitas características em comum: *Products* e *Categories*. Com isso em mente, foi projetada uma estrutura abstrata que permite o reuso de código e o fortalecimento da arquitetura. Essa estrutura é composta por camadas de *entities*, *useCases*, *exceptions*, *interfaces* e *controllers*, garantindo que os comportamentos comuns entre as entidades sejam implementados de forma padronizada e extensível. Assim, cada nova entidade pode herdar essa base, mantendo a consistência e a simplicidade do projeto, enquanto possibilita adaptações específicas de acordo com as necessidades de cada caso de uso.
 
