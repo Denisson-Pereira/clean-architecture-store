@@ -213,7 +213,45 @@ Após clonar o repositório, para acessar o backend, basta digitar o seguinte co
 cd backend
 ```
 
-Lembre-se de que os dados estão localizados, a partir da raiz do projeto, em database/Dump20241015.sql
+Você pode rodar a aplicação com o seguinte comando:
+
+```
+mvn spring-boot:run
+```
+
+Esse comando irá compilar e rodar a aplicação diretamente no terminal.
+
+![Web 1](./github/spring.gif) 
+
+## Logar 
+
+Para fazer requisições `POST` pelo terminal Linux, você pode utilizar o comando `curl`. Para instalar o curl via terminal e verificar sua versão, basta digitar os comandos:
+```
+sudo apt update
+```
+
+```
+sudo apt install curl
+```
+
+```
+curl --version
+```
+Agora, com a sua aplicação rodando na porta 8080, basta fazer a requisição com o comando:
+
+```
+curl -X POST http://localhost:8080/auth/login -H "Content-Type: application/json" -d '{"login":"den", "password":"12345"}'
+```
+
+Dessa forma, o servidor, caso o login e a senha estejam corretos, responderá com um token, que será utilizado para consumir quaisquer dados em rotas privadas. Por exemplo, para acessar os produtos, basta fazer uma requisição enviando o token no cabeçalho:
+
+```
+curl -X GET http://localhost:8080/private/products -H "Authorization: Bearer {TOKEN_AQUI}"
+```
+
+![Web 1](./github/spring.gif) 
+
+Lembre-se de que os dados do banco estão localizados, a partir da raiz do projeto, em `database/Dump20241015.sql`.
 
 
 ## 📱 Documentação
