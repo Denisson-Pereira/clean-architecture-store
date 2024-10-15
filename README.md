@@ -224,6 +224,8 @@ Para acessar a documentação da API, basta visitar a URL:
 http://localhost:8080/swagger-ui/index.html#/
 ```
 
+![Doc 1](./github/swagger.png) 
+
 # 📸 Visuals and Screenshots
 
 Dê uma espiada no nosso projeto em funcionamento e esclareça todas as suas dúvidas sobre como executá-lo!
