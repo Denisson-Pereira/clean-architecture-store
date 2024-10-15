@@ -123,7 +123,7 @@ O banco de dados `foodhub` contém três tabelas principais: `category`, `produc
 
 | Campo   | Tipo         | Descrição                               |
 |---------|--------------|-----------------------------------------|
-| id      | bigint       | Identificador único da categoria        |
+| id      | int       | Identificador único da categoria        |
 | name    | varchar(255) | Nome da categoria                       |
 | image   | varchar(255) | URL da imagem da categoria              |
 
@@ -138,7 +138,7 @@ O banco de dados `foodhub` contém três tabelas principais: `category`, `produc
 
 | Campo          | Tipo         | Descrição                          |
 |----------------|--------------|------------------------------------|
-| id             | bigint       | Identificador único do produto      |
+| id             | int       | Identificador único do produto      |
 | name           | varchar(255) | Nome do produto                    |
 | evaluation     | varchar(255) | Avaliação do produto               |
 | description    | varchar(255) | Descrição do produto               |
@@ -160,7 +160,7 @@ O banco de dados `foodhub` contém três tabelas principais: `category`, `produc
 
 | Campo   | Tipo         | Descrição                               |
 |---------|--------------|-----------------------------------------|
-| id      | bigint       | Identificador único do usuário          |
+| id      | int       | Identificador único do usuário          |
 | name    | varchar(255) | Nome do usuário                         |
 | login   | varchar(255) | Login do usuário                        |
 | password| varchar(255) | Senha do usuário                       |
