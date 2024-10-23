@@ -249,7 +249,7 @@ Dessa forma, o servidor, caso o login e a senha estejam corretos, responderá co
 curl -X GET http://localhost:8080/private/products -H "Authorization: Bearer {TOKEN_AQUI}"
 ```
 
-![Web 1](./github/spring.gif) 
+![Web 1](./github/products.gif) 
 
 Lembre-se de que os dados do banco estão localizados, a partir da raiz do projeto, em `database/Dump20241015.sql`.
 
